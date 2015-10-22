@@ -1,0 +1,3 @@
+[submodule "make-doc"]
+	path = make-doc
+	url = git@github.com:pebie/make-doc.git
