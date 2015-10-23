@@ -9,36 +9,14 @@ import { connect } from 'react-redux';
 import {fetchComicsIfNeeded, invalidateComics } from '../../actions/actions.js';
 import Header from '../layout/Header.jsx';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleRefreshClick = this.handleRefreshClick.bind(this);
   }
 
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchComicsIfNeeded());
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps.selectedReddit !== this.props.selectedReddit) {
-    //   const { dispatch, selectedReddit } = nextProps;
-    //   dispatch(fetchPostsIfNeeded(selectedReddit));
-    // }
-  }
-
-  handleChange(nextReddit) {
-    // this.props.dispatch(selectReddit(nextReddit));
-  }
-
-  handleRefreshClick(e) {
-    // e.preventDefault();
-    //
-    // const { dispatch, selectedReddit } = this.props;
-    // dispatch(invalidateReddit(selectedReddit));
-    // dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
   render() {

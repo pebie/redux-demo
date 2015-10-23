@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
 
 import WebpackDevServer from 'webpack-dev-server';
 import CleanPlugin from 'clean-webpack-plugin';
