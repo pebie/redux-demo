@@ -1,7 +1,8 @@
-/**
-* Created by Pebie on 22/09/15.
-*/
 import React from 'react';
-import App from './components/app/App.jsx';
+import { render } from 'react-dom';
+import Root from './components/Root';
 
-React.render(<App />, document.getElementById('wrapper'));
+render(
+  <Root />,
+  document.getElementById('root')
+);
