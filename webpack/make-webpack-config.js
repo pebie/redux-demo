@@ -12,9 +12,9 @@ let WebpackConfig = (options)=> {
   let commonLoaders = loadersConfig().getCommons(options);
   let stylesheetLoaders = loadersConfig().getStylesheets(options);
   let imagesLoaders = loadersConfig().getImages(options);
-  let plugins = pluginsConfig().get(options);
+  let plugins = pluginsConfig(options).get(options);
   let entry = entryConfig().get(options);
-  let output = outputConfig().get(options);
+  let output = outputConfig(options).get(options);
   let resolve = resolveConfig().get(options);
   //One comment line
   let devServer = (process.env.NODE_ENV === 'production') ? null : {

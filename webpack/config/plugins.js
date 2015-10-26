@@ -7,13 +7,13 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import BowerWebpackPlugin from 'bower-webpack-plugin';
 
-module.exports = ()=> {
+module.exports = (options)=> {
 
   var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new HtmlWebpackPlugin({
       inject: true,
-      template: './src/index.html'
+      template: './' + options.srcPath + '/index.html'
     }),
     new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({excludes: /.*\.less/}),

@@ -9,7 +9,7 @@ module.exports = ()=> {
     get: (options)=> {
 
       var entries = {
-        module: [path.join(options.srcPath, 'index.js')]
+        module: ['./' + options.srcPath + '/index.js']
       };
       var devEntries = {
         common: ['react', 'webpack/hot/only-dev-server'],

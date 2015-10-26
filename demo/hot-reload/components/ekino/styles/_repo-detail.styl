@@ -1,0 +1,117 @@
+.repo-detail
+  background-color $color-accent-1
+
+  overflow hidden
+
+  &__pager
+    clearfix()
+    &__link
+      position relative
+      &:hover
+        text-decoration underline
+      .fa
+        position absolute
+        top 5px
+      &--prev
+        float left
+        .fa
+          left -17px
+      &--next
+        float right
+        .fa
+          right -17px
+
+  &__main
+    background-color $color-accent-1
+    width 80%
+    min-height 500px
+
+    float left
+    border-right 2px solid #000
+
+    padding 20px 30px
+
+    color #000
+
+  &__sidebar
+    float left
+    width 20%
+
+  &__stats
+    padding 20px
+    color #000
+
+    text-align center
+    
+    .fa-star,
+    .fa-code-fork
+      margin-left 15px
+
+  &__github-link
+    display inline-block
+    margin-top 15px
+
+    vertical-align middle
+
+    .fa
+      vertical-align middle
+      font-size 24px
+
+      margin-right 3px
+
+  &__dot
+    position relative
+
+    background-color #000
+
+    &:before
+      content     ''
+      display     block
+      padding-top 100%
+
+    &:after
+      content ''
+      display block
+      position absolute
+
+      top    0
+      right  0
+      bottom 0
+      left   0
+
+      border-radius 100%
+
+      margin-bottom 2px
+
+for $color_name, $color in $corporate_colors
+  .repo-detail--{$color_name}
+    background-color $color
+    .repo-detail__main
+      background-color $color
+    .repo-detail__dot
+      &:after
+        background-color $color
+
+@media (max-width: 1080px)
+  .repo-detail
+    &__main
+      width 75%
+    &__sidebar
+      width 25%
+
+@media (max-width: 780px)
+  .repo-detail
+    &__main
+      width 66.66%
+    &__sidebar
+      width 33.33%
+
+@media (max-width: 680px)
+  .repo-detail
+    &__main
+      width 100%
+      padding 20px 15px
+    &__sidebar
+      display none
+    &__pager
+      display none
