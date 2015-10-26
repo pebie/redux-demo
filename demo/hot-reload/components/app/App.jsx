@@ -1,20 +1,26 @@
 /**
 * Created by Pebie on 22/09/15.
 */
+
 import '../../fonts/fonts.scss';
-import './app.scss'
 
 import React, { Component } from 'react';
-import Header from '../layout/Header.jsx';
+import Ekino from '../ekino/Ekino';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
 
-export default class App extends Component {
+class App extends Component {
 
   render() {
     return (
       <div className="main">
         <Header/>
+        <Ekino/>
+        <Footer/>
       </div>
     );
   }
 }
+
+export default App;

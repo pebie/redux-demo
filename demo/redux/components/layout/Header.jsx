@@ -11,7 +11,7 @@ export default class Header extends Component {
   render() {
     return (
       <div className="header">
-        <span className="header-text">make-doc</span>
+        <span className="header-text">redux-demo</span>
         <span className="header-text header-text--right">pebie.</span>
       </div>
     );

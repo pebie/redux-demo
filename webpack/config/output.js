@@ -4,8 +4,8 @@
 import path from 'path';
 import process from 'process';
 
-module.exports = () => {
-  let outputDir = (process.env.NODE_ENV === 'production') ? './server/client' : 'tmp';
+module.exports = (options) => {
+  let outputDir = (process.env.NODE_ENV === 'production') ? options.outputDir : 'tmp';
   return {
     get: ()=> {
       return {

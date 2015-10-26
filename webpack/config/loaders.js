@@ -11,7 +11,7 @@ module.exports = ()=> {
         {
           test: /\.jsx?$/,
           loaders: options.hotComponents ? ['react-hot', 'babel'] : ['babel'],
-          include: path.join(process.cwd(), 'src')
+          include: path.join(process.cwd(), options.srcPath)
         }
       ];
     },
@@ -34,6 +34,10 @@ module.exports = ()=> {
         loader: 'style!css!sass'
       };
 
+      let stylus = {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      };
 
       let font = [
         {
@@ -69,7 +73,7 @@ module.exports = ()=> {
        loaders: ['style', 'css', 'sass']
        };*/
 
-      return [sass, font, html, less, css];
+      return [sass, stylus, font, html, less, css];
     }
   };
 };

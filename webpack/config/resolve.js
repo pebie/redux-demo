@@ -7,7 +7,7 @@ module.exports = ()=> {
       return {
         root: options.srcPath,
         extensions: ['', '.js', '.jsx'],
-        modulesDirectories: ['node_modules', 'src']
+        modulesDirectories: ['node_modules', options.srcPath]
       };
     }
   };
