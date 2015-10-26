@@ -1,16 +1,22 @@
-process.env.NODE_ENV = 'development';
-
 import WebpackDevServer from 'webpack-dev-server';
 import CleanPlugin from 'clean-webpack-plugin';
 import WebpackConfig from './make-webpack-config';
 import webpack from 'webpack';
 import path from 'path';
+import optimist from 'optimist';
+import open from 'open';
+
+let myArgs = optimist.argv;
+
+process.env.NODE_ENV = (myArgs._[1] == "release") ? 'production' : 'development';
 
 let isProd = process.env.NODE_ENV === 'production';
 let options = {
-  srcPath: path.join(process.cwd(), 'src'),
-  minimize: isProd
+  minimize: isProd,
+  srcPath: 'demo/' + myArgs._[0],
+  outputDir: './client'
 };
+
 if(!isProd){
   Object.assign(options, {
     debug: true,
@@ -19,6 +25,7 @@ if(!isProd){
     hotComponents: true,
   });
 }
+
 let myConfig = Object.create(WebpackConfig(options));
 
 if (require.main === module && 'development' === process.env.NODE_ENV) {
@@ -41,6 +48,8 @@ if (require.main === module && 'development' === process.env.NODE_ENV) {
     if (err) {
       throw new gutil.PluginError('webpack-dev-server', err);
     }
+
+    open("http://localhost:8080/webpack-dev-server/");
     console.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/');
   });
 }else{
@@ -49,5 +58,6 @@ if (require.main === module && 'development' === process.env.NODE_ENV) {
     if (err) {
       throw new gutil.PluginError('webpack-build-production', err);
     }
+    console.log('Done see in ', options.outputDir);
   });
 }
