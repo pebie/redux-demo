@@ -5,3 +5,11 @@ Don't use it or install it manually.
 * Don't forget to install react-dom since 0.14 split it from react.
 
 * Package redux and react-redux are different but you need both.
+
+* Until next release this warning will appear. This is due to new react 0.14.
+
+```javascript
+
+ Warning: React.findDOMNode is deprecated. Please use ReactDOM.findDOMNode from require('react-dom') instead.
+
+```
