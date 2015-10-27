@@ -3,11 +3,14 @@
 */
 import '../../fonts/fonts.scss';
 import './app.scss'
+import "bootstrap-webpack";
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import {fetchComicsIfNeeded, invalidateComics } from '../../actions/actions.js';
+import {fetchComicsIfNeeded, postComic, invalidateComics } from '../../actions/actions.js';
 import Header from '../layout/Header.jsx';
+import GridComics from '../comics/GridComics.jsx';
+import Forms from '../forms/Forms.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -19,10 +22,17 @@ class App extends Component {
     dispatch(fetchComicsIfNeeded());
   }
 
+  onAddComic(json) {
+    const { dispatch } = this.props;
+    dispatch(postComic(json));
+  }
+
   render() {
     return (
       <div className="main">
         <Header/>
+        <Forms onAddComic={this.onAddComic.bind(this)}/>
+        <GridComics items={this.props.items} />
       </div>
     );
   }

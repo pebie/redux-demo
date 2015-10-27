@@ -1,6 +1,7 @@
 export const REQUEST_COMICS = 'REQUEST_COMICS';
 export const RECEIVE_COMICS = 'RECEIVE_COMICS';
 export const INVALIDATE_COMICS = 'INVALIDATE_COMICS';
+export const ADD_COMIC = 'ADD_COMICS';
 
 export function invalidateComics() {
   return {
@@ -21,16 +22,27 @@ function receiveComics(json) {
   };
 }
 
+function addComic(json) {
+  return {
+    type: ADD_COMIC,
+    item: json
+  };
+}
+
+function postComic(json){
+
+}
+
 function fetchComics() {
   return dispatch => {
     dispatch(requestComics());
     return fetch('/api/comics')
-      .then(req => {
-        return req.json()
-      })
-      .then(json => {
-        dispatch(receiveComics(json))
-      });
+    .then(req => {
+      return req.json()
+    })
+    .then(json => {
+      dispatch(receiveComics(json))
+    });
   };
 }
 
@@ -50,5 +62,22 @@ export function fetchComicsIfNeeded() {
     if (shouldFetchComics(getState())) {
       return dispatch(fetchComics());
     }
+  };
+}
+
+export function postComic(json) {
+  return (dispatch, getState) => {
+    return fetch('/api/comics', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(json)
+    })
+    .then(req => {
+      dispatch(addComic(req))
+      dispatch(fetchComics());
+    });
   };
 }

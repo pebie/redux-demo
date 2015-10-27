@@ -1,6 +1,6 @@
 [submodule "make-doc"]
 	path = make-doc
 	url = git@github.com:pebie/make-doc.git
-[submodule "redux-demo-server"]
-	path = redux-demo-server
-	url = git@github.com:pebie/redux-demo-server.git
+[submodule "pebie-server"]
+	path = pebie-server
+	url = git@github.com:pebie/pebie-server.git

@@ -1,0 +1,92 @@
+.page-count
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+.repos-grid
+  clearfix()
+  &__item
+    position relative
+    width 20%
+    float left
+    border 1px solid #000
+
+    &:before
+      content     ''
+      display     block
+      padding-top 100%
+
+    &__repo
+      padding 20px
+      display block
+      position absolute
+
+      top    0
+      right  0
+      bottom 0
+      left   0
+
+      color       #000
+
+      $bg-color = $corporate_colors.pale_yellow
+      background $bg-color
+
+      transition(background-color 300ms)
+
+      &:hover
+        background-color lighten($bg-color, 7)
+
+    &__title
+      margin  0
+      padding 0
+
+      position relative
+
+      .fa
+        position absolute
+
+        right 0
+
+      &__:after
+        content ''
+        display block
+        height 1px
+        width 30%
+        background-color #000
+        margin-top 13px
+
+    &__meta
+      position absolute
+
+      font-size   14px
+      font-weight 800
+
+      bottom 16px
+      right  20px
+
+      .fa-star,
+      .fa-code-fork
+        margin-left 10px
+
+@media (max-width: 1080px)
+  .repos-grid__item
+    width 25%
+
+@media (max-width: 880px)
+  .repos-grid__item
+    width 33.33%
+
+@media (max-width: 680px)
+  .repos-grid__item
+    width 50%
+
+@media (max-width: 520px)
+  .repos-grid__item
+    width 100%
+    &:before
+      padding-top 0
+    &__repo
+      position relative
+      padding 20px 15px 36px 15px
+    &__meta
+      right auto
+      left 20px
