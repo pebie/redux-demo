@@ -23,7 +23,9 @@ Start by updating submodule :
 
 `git@github.com:pebie/redux-demo-server.git`
 
-run
+Follow instruction in README file.
+
+The run
 
 `npm start redux`
 

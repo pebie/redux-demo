@@ -12,6 +12,7 @@ let WebpackConfig = (options)=> {
   let commonLoaders = loadersConfig().getCommons(options);
   let stylesheetLoaders = loadersConfig().getStylesheets(options);
   let imagesLoaders = loadersConfig().getImages(options);
+  let bootstrapLoaders = loadersConfig().getBootstrap(options);
   let plugins = pluginsConfig(options).get(options);
   let entry = entryConfig().get(options);
   let output = outputConfig(options).get(options);

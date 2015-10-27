@@ -1,6 +1,6 @@
 /**
- * Created by bouchez on 31/07/15.
- */
+* Created by bouchez on 31/07/15.
+*/
 import path from 'path';
 import process from 'process';
 
@@ -26,6 +26,15 @@ module.exports = ()=> {
           ]
         }
       ];
+    },
+
+    getBootstrap: ()=>{
+      return [
+        {
+          test: /bootstrap\/js\//,
+          loader: 'imports?jQuery=jquery'
+        }
+      ]
     },
 
     getStylesheets: ()=> {
@@ -68,10 +77,10 @@ module.exports = ()=> {
 
       /*let sass = (options.separateStylesheet) ? separateCSS : dontSeparateCSS;*/
       /*let dontSeparateCSS = {
-       test: /\.scss$/,
-       include: [path.join(process.cwd(), 'src'), path.join(process.cwd(), 'node_modules')],
-       loaders: ['style', 'css', 'sass']
-       };*/
+      test: /\.scss$/,
+      include: [path.join(process.cwd(), 'src'), path.join(process.cwd(), 'node_modules')],
+      loaders: ['style', 'css', 'sass']
+      };*/
 
       return [sass, stylus, font, html, less, css];
     }
